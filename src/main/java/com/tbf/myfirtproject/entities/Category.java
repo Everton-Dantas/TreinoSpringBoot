@@ -1,13 +1,22 @@
 package com.tbf.myfirtproject.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Category implements Serializable {
 	
+	
 	private static final long serialVersionUID = 1L;
+	
+	
 	private long id;
 	private String name;
 	
+	@JsonIgnore
+	private List<Product> products = new ArrayList<>();
 	
 	public Category() {
 		
@@ -48,6 +57,18 @@ public class Category implements Serializable {
 		result = prime * result + (int) (id ^ (id >>> 32));
 		return result;
 	}
+
+	
+	
+	
+	
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+
+	
 
 
 	@Override
